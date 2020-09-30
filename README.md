@@ -6,6 +6,18 @@
 
 
 ## 実行
+[pipenv](https://pipenv-ja.readthedocs.io/ja/translate-ja/)で管理しているので、以下よりpipenvを起動し、実行してください。
+
+```sh
+$ pipenv shell
+$ python main.py -d path/to/data.csv
+
+or
+
+$ pipenv run python main.py -d path/to/data.csv
+```
+
+ヘルプの確認は`-h`オプションで行います。
 ```sh
 $ python main.py -h
 usage: main.py [-h] [-s SETTINGS] -d DATA [-o {viewform,formResponse}]
@@ -37,6 +49,23 @@ optional arguments:
   - 読み込むデータの形式をここで定義します。
   - keyにはGoogleFormのentryを設定します。詳しくは[他のGoogleFormに対応する](#他のGoogleFormに対応する)を参照してください。
   - valueにはデフォルト値を入力できます。氏名など、全て統一したい項目がある場合はここに記入してください。
+
+## データ
+デフォルトでは`data`ディレクトリにcsv形式で設置します。以下、データ例です。
+一行目は`DATA_FORMAT`のkeyに対応したヘッダをつけてください。データは欠損していても問題ありません。
+
+```csv
+1897951779,603641719,909280450
+出勤打刻忘れ報告,2020-09-04,13:00
+退勤打刻忘れ報告,2020-09-04,18:00
+```
+
+`data/sample.csv`にサンプルを設置しているので、以下のコマンドで結果を確かめることができます。
+
+```sh
+$ pipenv run python main.py -d sample.csv 
+```
+
 
 ## 他のGoogleFormに対応する
 他のGoogleFormに対応するためには上記の設定を変更してください。

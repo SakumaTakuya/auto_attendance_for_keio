@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfB_54t-lyRdwl0KRqu-eaHMhgm5hMhnHmEqJkVj7J7t1LntA"
 
 # viewform | formResponse
-OPERATION = "formResponse"
+OPERATION = "viewform"
 
 DATA_ROOT = os.path.join(BASE_DIR, "data")
 
