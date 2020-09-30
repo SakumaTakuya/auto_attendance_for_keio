@@ -1,0 +1,1 @@
+# auto_attendance_for_keio
