@@ -9,6 +9,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--settings", required=False, default="base", help="設定モジュール名")
 parser.add_argument("-d", "--data", required=True, help="実行データのパス(DATA_ROOTからの相対パス指定)")
 parser.add_argument("-o", "--op", required=False, choices=["viewform", "formResponse"], help="実行命令(表示:viewform, 提出:formResponse)")
+parser.add_argument("-l", "--do_last", required=False, default=True, type=bool, help="最終行のみを作業対象とするか")
 
 
 SPACE_REP = "+"
@@ -31,6 +32,9 @@ def main(args=parser.parse_args()):
     df = pd.read_csv(
         os.path.join(settings.DATA_ROOT, args.data), 
         dtype=str).fillna("")
+
+    if args.do_last:
+        df = df[-1:]
 
     for _, data in df.iterrows():
         url = make_url(

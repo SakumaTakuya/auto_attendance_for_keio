@@ -29,6 +29,8 @@ optional arguments:
   -d DATA, --data DATA  実行データのパス(DATA_ROOTからの相対パス指定)
   -o {viewform,formResponse}, --op {viewform,formResponse}
                         実行命令(表示:viewform, 提出:formResponse)
+  -l DO_LAST, --do_last DO_LAST
+                        最終行のみを作業対象とするか
 ```
 
 ## 設定
@@ -42,7 +44,7 @@ optional arguments:
 - `OPERATION`
   - 実行命令です。次の二値から選択してください。
     - `"viewform"` : 入力された状態でブラウザを開きます。
-    - `"formResponse"` : 入力後提出します。この命令を実行する前に`"viewform"`で内容を確認することをお勧めします。
+    - `"formResponse"` : 入力後提出します。この命令を実行する前に`"viewform"`で内容を確認することをお勧めします。但し認証が必要な場合はviewformと同様の処理となります。
 - `DATA_ROOT`
   - 提出するデータが置かれているディレクトリのルートパスです。
 - `DATA_FORMAT`
